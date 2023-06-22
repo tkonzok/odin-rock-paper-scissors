@@ -11,12 +11,14 @@ function getComputerChoice() {
 
 /* Promt asks user to choose either rock, paper or scissors */
 function getPlayerChoice() {
-    choice = prompt("Enter rock, paper or scissors: ");
+    let choice = prompt("Enter rock, paper or scissors: ");
     return choice;
 }
 
 /* Simulation of one round of the game. Compares both choices and returns the winner or tie, if it's a tie */
 function playRound(playerSelection, computerSelection) {
+    document.getElementById("player_selection").innerHTML = `You select: ${playerSelection}`;
+    document.getElementById("computer_selection").innerHTML = `Computer selects: ${computerSelection}`;
     if (playerSelection === computerSelection) {
         return "Tie";
     } else if (
@@ -62,4 +64,12 @@ function game(roundsToPlay) {
 }
 
 /* Calling the game function. Parameter tells game how many rounds to be played. */
-game(5)
+// game(5)
+
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissors = document.querySelector('#scissors');
+
+btnRock.addEventListener('click', () => playRound("rock", getComputerChoice()));
+btnPaper.addEventListener('click', () => playRound("paper", getComputerChoice()));
+btnScissors.addEventListener('click', () => playRound("scissors", getComputerChoice()));
