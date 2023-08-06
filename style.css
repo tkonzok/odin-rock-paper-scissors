@@ -1,80 +1,186 @@
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100vh;
 }
 
 p {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #dbdbdb;
-    margin: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #dbdbdb;
+  margin: 0 10vw;
 }
 
 .scoreboard {
-    display: flex;
-    justify-content: center;
-    font-size: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
 }
 
 #score {
-    font-size: 100px;
-    font-weight: 900;
-    margin: 0 0.5em;
+  font-size: 2em;
+  font-weight: 900;
+  margin: 0 0.5em;
 }
 
 #buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0;
+  gap: 1vw;
 }
 
 .btn-container {
-    background-color: #fff;
-    display: flex;
-    width: 20vw;
-    height: 20vw;
-    border: solid #5f5f5f;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
+  background-color: #00000000;
+  display: flex;
+  width: 20vw;
+  height: 20vw;
+  min-width: 40px;
+  min-height: 40px;
+  border: solid #00000000;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.btn-container:hover {
+  border: solid #19098e;
+  background-color: #0000ff10;
 }
 
 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .selections {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
 }
 
 .selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.2em;
-    font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 2.5em;
 }
 
-#player_selection, #computer_selection {
-    font-weight: 900;
-    margin: 0;
+#player_selection,
+#computer_selection {
+  width: 10vw;
+  height: 10vw;
+  min-width: 80px;
+  min-height: 80px;
+  margin: 0;
 }
 
 .selection p {
-    margin: 0;
+  margin: 0;
 }
 
 #announcement {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
+  display: flex;
+  justify-content: center;
+  font-size: 2.5em;
+}
+
+.tie {
+  border-radius: 8px;
+  border: solid #000000;
+  background-color: #00000010;
+  padding: 0.5rem 1rem;
+}
+.win {
+  border-radius: 8px;
+  border: solid #09471b;
+  background-color: #09471b10;
+  padding: 0.5rem 1rem;
+}
+.lose {
+  border-radius: 8px;
+  border: solid #a20101;
+  background-color: #a2010110;
+  padding: 0.5rem 1rem;
+}
+
+.restart-div {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 2;
+  left: 0px;
+  width: 100%;
+  overflow: auto;
+  background-color: #000000ad;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 2em;
+  padding: 150px 0;
+  margin-top: -150px;
+}
+
+.restart-div > p {
+  color: #fff;
+}
+
+.restart-div > button {
+  border-radius: 8px;
+  border: solid #00000000;
+  padding: 0.5rem 1em;
+}
+
+.restart-div > button:hover {
+  color: #fff;
+  border: solid #19098e;
+  background-color: #0000ff10;
+}
+
+@media (max-width: 40em) {
+  .scoreboard {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 40em) {
+  .scoreboard {
+    font-size: 2em;
+  }
+
+  .selection {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 32em) {
+  .selection {
+    font-size: 1.5em;
+  }
+
+  #announcement {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 28em) {
+  .scoreboard {
+    font-size: 1.5em;
+  }
+
+  .selection {
+    font-size: 1em;
+  }
+
+  #announcement {
+    font-size: 1.5em;
+  }
 }

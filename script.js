@@ -5,7 +5,7 @@ let computerScore = 0;
 let playerSelection = "";
 let computerSelection = "";
 
-    function game() {
+function game() {
     const btnRock = document.querySelector('#rock');
     const btnPaper = document.querySelector('#paper');
     const btnScissors = document.querySelector('#scissors');
@@ -26,20 +26,20 @@ function getComputerChoice() {
 
 /* Simulation of one round of the game. Compares both choices and returns the winner or tie, if it's a tie */
 function playRound(playerSelection, computerSelection) {
-    document.getElementById("player_selection").innerHTML = `${playerSelection.toUpperCase()}`;
-    document.getElementById("computer_selection").innerHTML = `${computerSelection.toUpperCase()}`;
+    document.getElementById("player_selection").innerHTML = `<img src="./images/${playerSelection}.svg" />`;
+    document.getElementById("computer_selection").innerHTML = `<img src="./images/${computerSelection}.svg" />`;
     if (playerSelection === computerSelection) {
-        document.querySelector("#announcement>p").innerHTML = `It's a tie.`;
+        document.querySelector("#announcement>p").innerHTML = `<span class="tie">It's a tie.</span>`;
     } else if (
         playerSelection === "rock" && computerSelection === "scissors" || 
         playerSelection === "scissors" && computerSelection === "paper" || 
         playerSelection === "paper" && computerSelection === "rock"
         ) {
-        document.querySelector("#announcement>p").innerHTML = `Yay, this round is yours!`;
+        document.querySelector("#announcement>p").innerHTML = `<span class="win">Yay, this round is yours!</span>`;
         playerScore++;
         document.getElementById("score").innerHTML = `${playerScore} : ${computerScore}`;
     } else {
-        document.querySelector("#announcement>p").innerHTML = `So bad. Wrong decision!`;
+        document.querySelector("#announcement>p").innerHTML = `<span class="lose">So bad. Wrong decision!</span>`;
         computerScore++;
         document.getElementById("score").innerHTML = `${playerScore} : ${computerScore}`;
     }
