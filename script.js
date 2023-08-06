@@ -43,17 +43,35 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         document.getElementById("score").innerHTML = `${playerScore} : ${computerScore}`;
     }
-    if (playerScore === 5 || computerScore === 5) {
-        gameOver(playerScore, computerScore);
+    if (playerScore === 3 || computerScore === 3) {
+        gameOver(playerScore);
     }
 }
 
-function gameOver(playerScore, computerScore) {
-    if (playerScore === 5) {
-        document.querySelector("#announcement>p").innerHTML = `Congratulations, you are the winner!`;
+function gameOver(playerScore) {
+    const body = document.querySelector('body');
+    const restartDiv = document.createElement('div');
+    restartDiv.classList.add('restart-div');
+    body.appendChild(restartDiv);
+    
+    let message = document.createElement('p');
+    if (playerScore === 3) {
+        message.textContent = "Congratulations, you are the winner! Play again?";
     } else {
-        document.querySelector("#announcement>p").innerHTML = `Oh no, you lost the game!`;
+        message.textContent = "Oh no, you lost the game! Play again?"
     }
+    restartDiv.appendChild(message);
+
+    let btn = document.createElement('button');
+    btn.setAttribute("type", "button");
+    btn.setAttribute("id", "restart-btn");
+    btn.textContent = "RESTART";
+    restartDiv.appendChild(btn);
+
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.reload()
+    })
 }
 
 game()
